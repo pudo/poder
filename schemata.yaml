@@ -1,0 +1,163 @@
+- name: poderentity
+  label: Poderopedia Entity
+  obj: entity
+  hidden: yes
+  attributes:
+    - name: poderopedia_id
+      label: Poderopedia ID
+    - name: alias
+      label: Alias
+    - name: country
+      label: Country of residence
+
+- name: org
+  label: Organisation
+  obj: entity
+  hidden: no
+  attributes: []
+
+- name: person
+  label: Person
+  obj: entity
+  hidden: no
+  attributes:
+    - name: short_bio
+      label: Short Bio
+
+
+# this is messy
+
+- label: "Grupos religiosos"
+  name: religious_group
+  obj: relation
+  attributes:
+    - name: role
+      label: Role
+
+- label: "Cargos en Empresas"
+  name: business_post
+  obj: relation
+  attributes:
+    - name: role
+      label: Role
+
+- label: "Conexion Generica"
+  name: generic_relation
+  obj: relation
+  attributes:
+    - name: role
+      label: Role
+
+- label: "Movimientos Ciudadanos o Sociales"
+  name: social_movements
+  obj: relation
+  attributes:
+    - name: role
+      label: Role
+
+- label: "Participación en Empresas"
+  name: business
+  obj: relation
+  attributes:
+    - name: role
+      label: Role
+
+- label: "Participación en grupo económico"
+  name: economic_group
+  obj: relation
+  attributes:
+    - name: role
+      label: Role
+
+- label: "Compañeros de Estudios"
+  name: research_fellow
+  obj: relation
+  attributes:
+    - name: role
+      label: Role
+
+- label: "Participación en ONG"
+  name: ngo_participation
+  obj: relation
+  attributes:
+    - name: role
+      label: Role
+
+- label: "Think Tanks o centros de estudios"
+  name: think_tank
+  obj: relation
+  attributes:
+    - name: role
+      label: Role
+
+- label: "Cargos en ONG"
+  name: ngo_position
+  obj: relation
+  attributes:
+    - name: role
+      label: Role
+
+- label: "Clubes privados"
+  name: private_clubs
+  obj: relation
+  attributes:
+    - name: role
+      label: Role
+
+- label: "Familia"
+  name: family
+  obj: relation
+  attributes:
+    - name: role
+      label: Role
+
+- label: "Amigos"
+  name: friends
+  obj: relation
+  attributes: []
+
+- label: "Conocidos"
+  name: known
+  obj: relation
+  attributes: []
+
+- label: "Grupos Seculares"
+  name: secular_group
+  obj: relation
+  attributes: []
+
+- label: "Estudios"
+  name: studies
+  obj: relation
+  attributes: []
+
+- label: "Grupos de apoyo a campaña política"
+  name: campaign
+  obj: relation
+  attributes: []
+
+- label: "Cargos Públicos"
+  name: public_office
+  obj: relation
+  attributes: []
+
+- label: "Asesor"
+  name: adviser
+  obj: relation
+  attributes: []
+
+- label: "Cónyuge o Pareja"
+  name: spouse
+  obj: relation
+  attributes: []
+
+- label: "Partidos Políticos"
+  name: political_party
+  obj: relation
+  attributes: []
+
+- label: "Cargos en Organismos Internacionales"
+  name: intl_organisations
+  obj: relation
+  attributes: []
+
