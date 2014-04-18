@@ -1,3 +1,5 @@
 *.pyc
 *.egg-info
 .env
+poderopedia/static/vendor/*
+poderopedia/static/.webassets-cache/*
