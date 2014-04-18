@@ -247,7 +247,8 @@ Grano.graph = function(selector, domain, project, seed, options){
   }
 
   function dblclick(d) {
-    d3.select(this).classed("fixed", d.fixed = false);
+    //d3.select(this).classed("fixed", d.fixed = false);
+    document.location.href = '/entities/' + d.id + '.html';
   }
 
   function dragstart(d) {

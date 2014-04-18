@@ -8,7 +8,7 @@
     <ul class="search-results">
         {% for result in results.results %}
             <li>
-                <a href="/entities/{{result.id}}.html">{{result.properties.name.value}}</a>
+                <a href="/entities/{{result.id}}.html">{{result.properties.alias.value}}</a>
             </li>
         {% endfor %}
     </ul>

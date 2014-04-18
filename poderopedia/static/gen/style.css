@@ -5849,6 +5849,8 @@ td.visible-print {
 }
 
 body {
+  background-color: #343434;
+  color: #eeeeee;
   font-size: 1.5em;
 }
 @media (min-width: 800px) {
@@ -5861,13 +5863,16 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'Open Sans', 'Helvetica', sans-serif;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 h1,
 h2,
 h3,
 h4 {
   font-weight: bolder;
+}
+.jumbotron {
+  background-color: #414141;
 }
 .jumbotron h1 {
   font-weight: 900;
@@ -5876,24 +5881,24 @@ h4 {
 .main-title {
   margin-bottom: 0.2em;
   padding-bottom: 0.2em;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #4e4e4e;
   color: #660000;
   font-size: 3em;
 }
 a,
 a:hover {
-  color: #dc0026;
+  color: #ff4800;
   t-ext-decoration: underline;
 }
 a:hover {
-  color: #dc0026;
+  color: #ff4800;
 }
 footer {
   margin-bottom: 1em;
   padding-bottom: 1em;
   margin-top: 1em;
   padding-top: 1em;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid #4e4e4e;
 }
 ul.search-results {
   list-style-type: none;
@@ -5905,22 +5910,30 @@ ul.search-results li {
   margin: 0;
   margin-bottom: 0.5em;
   padding-bottom: 0.5em;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #4e4e4e;
+}
+#poderopedia .table-striped tr:nth-child(odd) td,
+#poderopedia .table-striped tr:nth-child(odd) th {
+  background-color: #414141;
+}
+#poderopedia .table tr td,
+#poderopedia .table tr th {
+  border-top: 1px solid #4e4e4e;
 }
 .node {
-  fill: #0b39a4;
+  fill: #e65319;
   stroke: #fff;
   stroke-width: 2px;
   cursor: pointer;
 }
 .root {
-  fill: #dc0026 !important;
+  fill: #ff4800 !important;
   stroke: #000;
   stroke-width: 2px;
 }
 .pagination .active a {
-  background-color: #dc0026;
-  border-color: #dc0026;
+  background-color: #ff4800;
+  border-color: #ff4800;
   color: white;
 }
 .link {
@@ -5928,7 +5941,7 @@ ul.search-results li {
   stroke-opacity: .6;
 }
 .main-title a {
-  background: url('../img/machtvz.png') no-repeat left top;
+  background: url('../img/logo-beta.png') no-repeat left top;
   padding-left: 225px;
   height: 65px;
   text-decoration: none;
@@ -5936,11 +5949,15 @@ ul.search-results li {
   text-indent: -99999px;
 }
 .graph {
-  background-color: #eee;
+  background-color: #1a1a1a;
   height: 400px;
 }
+#graph-search {
+  background-color: #272727;
+  border: 1px solid #343434;
+}
 .graph-search-container {
-  background-color: #eee;
+  background-color: #1a1a1a;
 }
 .found {
   stroke: #f00;
@@ -5948,7 +5965,13 @@ ul.search-results li {
 }
 .node-title {
   position: absolute;
-  background-color: white;
+  background-color: black;
+  padding: 0.1em;
   -moz-user-select: none;
   user-select: none;
+}
+p.bio {
+  line-height: 1.5em;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }

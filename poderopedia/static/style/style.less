@@ -1,6 +1,14 @@
 
+@bgColor: #343434;
+@fgColor: #eee;
+@linkColor: #FF4800;
+@borderColor: lighten(@bgColor, 10%);
+
+
 body {
-    font-size: 1.5em;
+  background-color: @bgColor;
+  color: @fgColor;
+  font-size: 1.5em;
 }
 
 @media (min-width: 800px) {
@@ -10,33 +18,37 @@ body {
 }
 
 body, h1, h2, h3, h4 {
-    font-family: 'Open Sans', 'Helvetica', sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 h1, h2, h3, h4 {
     font-weight: bolder;
 }
 
-.jumbotron h1 {
-  font-weight: 900;
-  line-height: 1.4em;
+.jumbotron {
+  background-color: lighten(@bgColor, 5%);
+
+  h1 {
+    font-weight: 900;
+    line-height: 1.4em;
+  }
 }
 
 .main-title {
     margin-bottom: 0.2em;
     padding-bottom: 0.2em;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid @borderColor;
     color: #660000;
     font-size: 3em;
 }
 
 a, a:hover {
-    color: #dc0026;
+    color: @linkColor;
     t-ext-decoration: underline;
 }
 
 a:hover {
-  color: #dc0026;
+  color: @linkColor;
 }
 
 footer {
@@ -45,7 +57,7 @@ footer {
 
     margin-top: 1em;
     padding-top: 1em;
-    border-top: 1px solid #ddd;
+    border-top: 1px solid @borderColor;
 }
 
 ul.search-results {
@@ -58,26 +70,36 @@ ul.search-results {
         margin: 0;
         margin-bottom: 0.5em;
         padding-bottom: 0.5em;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid @borderColor;
     }
 }
 
+#poderopedia .table-striped tr:nth-child(odd) td,
+#poderopedia .table-striped tr:nth-child(odd) th {
+  background-color: lighten(@bgColor, 5%);
+}
+
+#poderopedia .table tr td,
+#poderopedia .table tr th {
+  border-top: 1px solid lighten(@bgColor, 10%);
+}
+
 .node {
-  fill: #0b39a4;
+  fill: desaturate(@linkColor, 20%);
   stroke: #fff;
   stroke-width: 2px;
   cursor: pointer;
 }
 
 .root {
-  fill: #dc0026 !important;
+  fill: @linkColor !important;
   stroke: #000;
   stroke-width: 2px;
 }
 
 .pagination .active a {
-  background-color: #dc0026;
-  border-color: #dc0026;
+  background-color: @linkColor;
+  border-color: @linkColor;
   color: white;
 }
 
@@ -87,7 +109,7 @@ ul.search-results {
 }
 
 .main-title a {
-  background: url('../img/machtvz.png') no-repeat left top;
+  background: url('../img/logo-beta.png') no-repeat left top;
   padding-left: 225px;
   height: 65px;
   text-decoration: none;
@@ -96,12 +118,17 @@ ul.search-results {
 }
 
 .graph {
-  background-color: #eee;
+  background-color: darken(@bgColor, 10%);
   height: 400px;
 }
 
+#graph-search {
+  background-color: darken(@bgColor, 5%);
+  border: 1px solid @bgColor;
+}
+
 .graph-search-container {
-  background-color: #eee;
+  background-color: darken(@bgColor, 10%);
 }
 
 .found {
@@ -110,8 +137,15 @@ ul.search-results {
 }
 
 .node-title {
-  position:absolute;
-  background-color:white;
+  position: absolute;
+  background-color: black;
+  padding: 0.1em;
   -moz-user-select: none;
        user-select: none;
+}
+
+p.bio {
+  line-height: 1.5em;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }

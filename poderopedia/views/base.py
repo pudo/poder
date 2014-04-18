@@ -44,13 +44,7 @@ def entity(id):
     entity = grano.entities.by_id(id)
     schemata = entity.schemata
     return render_template('entity.html', entity=entity,
-        schemata=schemata, query=entity.properties.get('name', {}).get('value'))
-
-
-@base.route('/relations/<id>.html')
-def relation(id):
-    relation = grano.relations.by_id(id)
-    return render_template('relation.html', relation=relation)
+        schemata=schemata, query=entity.properties.get('alias', {}).get('value'))
 
 
 @base.route('/browse.html')

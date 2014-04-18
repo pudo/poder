@@ -1,16 +1,16 @@
 {% extends "layout.html" %}
 
 {% block title %}
-  {{entity.properties.get('name', {}).get('value', {})}}
+  {{entity.properties.get('alias', {}).get('value', {})}}
 {% endblock %}
 
 {% block content %}
-    <h2>{{entity.properties.get('name', {}).get('value', {})}}</h2>
+    <h2>{{entity.properties.get('alias', {}).get('value', {})}}</h2>
 </div>
     <div class="graph-search-container">
         <div class="container">
             <div class="pull-right">
-                <input type="search" class="form-control input-sm" id="graph-search" placeholder="Suchen..."/>
+                <input type="search" class="form-control input-sm" id="graph-search" placeholder="Search..."/>
             </div>
         </div>
     </div>
@@ -19,44 +19,29 @@
         &nbsp;
     </div>
 <div class="container">
-    <div class="pull-right">
-        <small>
-            <a class="text-muted" href="#disclaimer">
-                Hinweise
-            </a>
-        </small>
-    </div>
-    <table class="table table-striped">
-        {% for key, prop in entity.properties.items() if key != 'name' %}
-            {% if prop.value %}
-                <tr>
-                    <th>{{get_attribute(schemata, key).label}}</th>
-                    <td>{{prop.value|safe}}</td>
-                </tr>
-            {% endif %}
-        {% endfor %}
-    </table>
+    {% if entity.properties.get('short_bio') %}
+    <p class="bio">
+        {{entity.properties.short_bio.value}}
+    </p>
+    {% endif %}
 
-    <h4>Beziehungen</h4>
+    <h4>Relationships</h4>
     <table class="table table-striped">
         {% for relation in entity.outbound %}
             <tr>
                 <td>{{get_schema(relation.schema.name).label}}</td>
-                <td><a href="/entities/{{relation.target.id}}.html">{{relation.target.properties.get('name', {}).get('value')}}</a></td>
-                <td><a href="/relations/{{relation.id}}.html">Mehr&nbsp;&raquo;</a></td>
+                <td>{{relation.properties.get('role', {}).get('value', '')}}</td>
+                <td><a href="/entities/{{relation.target.id}}.html">{{relation.target.properties.get('alias', {}).get('value')}}</a></td>
             </tr>
         {% endfor %}
         {% for relation in entity.inbound %}
             <tr>
                 <td>{{get_schema(relation.schema.name).label}}</td>
-                <td><a href="/entities/{{relation.source.id}}.html">{{relation.source.properties.get('name', {}).get('value')}}</a></td>
-                <td><a href="/relations/{{relation.id}}.html">Mehr&nbsp;&raquo;</a></td>
+                <td>{{relation.properties.get('role', {}).get('value', '')}}</td>
+                <td><a href="/entities/{{relation.source.id}}.html">{{relation.source.properties.get('alias', {}).get('value')}}</a></td>
             </tr>
         {% endfor %}
     </table>
-    <div id="disclaimer" class="alert alert-info">
-        Die dargestellten Verbindungen basieren auf amtlichen Veröffentlichungen von Nebeneinkünften, Parteispenden und der Verbändeliste des Deutschen Bundestages. Die Angaben sind nicht vollständig. Die Netzwerkdarstellung ist weiterhin gefiltert.
-    </div>
 {% endblock %}
 
 {% block js %}
@@ -70,7 +55,7 @@
 
   <script>
     var domain = 'http://beta.grano.cc';
-    var project = 'kompromatron';
+    var project = 'poderopedia';
     var seed = '{{ entity.id }}';
     Grano.graph('.graph', domain, project, seed, {
         depth: 2,
