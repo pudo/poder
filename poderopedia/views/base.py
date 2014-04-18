@@ -43,8 +43,13 @@ def about():
 def entity(id):
     entity = grano.entities.by_id(id)
     schemata = entity.schemata
-    return render_template('entity.html', entity=entity,
-        schemata=schemata, query=entity.properties.get('alias', {}).get('value'))
+    inbound = entity.inbound
+    inbound.params['limit'] = 1000
+    outbound = entity.outbound
+    outbound.params['limit'] = 1000
+    return render_template('entity.html', entity=entity, outbound=outbound,
+        inbound=inbound, schemata=schemata,
+        query=entity.properties.get('alias', {}).get('value'))
 
 
 @base.route('/browse.html')

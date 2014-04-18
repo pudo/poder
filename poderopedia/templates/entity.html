@@ -27,14 +27,14 @@
 
     <h4>Relationships</h4>
     <table class="table table-striped">
-        {% for relation in entity.outbound %}
+        {% for relation in outbound %}
             <tr>
                 <td>{{get_schema(relation.schema.name).label}}</td>
                 <td>{{relation.properties.get('role', {}).get('value', '')}}</td>
                 <td><a href="/entities/{{relation.target.id}}.html">{{relation.target.properties.get('alias', {}).get('value')}}</a></td>
             </tr>
         {% endfor %}
-        {% for relation in entity.inbound %}
+        {% for relation in inbound %}
             <tr>
                 <td>{{get_schema(relation.schema.name).label}}</td>
                 <td>{{relation.properties.get('role', {}).get('value', '')}}</td>
